@@ -8,7 +8,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 #include "stdint.h"
-//#define DISPLAY_TYPE_EBiCS (1<<5)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
+#define DISPLAY_TYPE_EBiCS (1<<5)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
 //#define DISPLAY_TYPE_KINGMETER_618U (1<<3)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
 //#define DISPLAY_TYPE_KINGMETER_901U (1<<4)                  // King-Meter 901U protocol (KM5s)
 //#define DISPLAY_TYPE_KINGMETER      (DISPLAY_TYPE_KINGMETER_618U|DISPLAY_TYPE_KINGMETER_901U)
@@ -42,7 +42,7 @@
 #define RAMP_END 1200
 #define THROTTLE_OFFSET 900
 #define THROTTLE_MAX 2850
-#define WHEEL_CIRCUMFERENCE 2800
+#define WHEEL_CIRCUMFERENCE 2200
 #define GEAR_RATIO 11 //11 for BionX IGH3
 #define SPEEDLIMIT 30
 #define PULSES_PER_REVOLUTION 1
@@ -54,7 +54,7 @@
 #define FRAC_LOW 15
 //#define TS_MODE
 //#define TQONAD1
-//#define DISPLAY_TYPE DISPLAY_TYPE_DEBUG
+#define DISPLAY_TYPE DISPLAY_TYPE_DEBUG
 #define REVERSE 1
 #define PUSHASSIST_CURRENT 300
 #define VOLTAGE_MIN 300
@@ -70,11 +70,11 @@
 #define P_FACTOR_PLL 10
 #define I_FACTOR_PLL 10
 #define AUTODETECT 1
-#define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
+#define SPEED_PLL 0 //1 for using PLL, 0 for angle extrapolation
 
 #define EXTERNAL 1
 #define INTERNAL 0
-#define SPEEDSOURCE INTERNAL
+#define SPEEDSOURCE EXTERNAL
 #define SPEEDFILTER 1
 #define SIXSTEPTHRESHOLD 20000
 
@@ -82,3 +82,4 @@
 //#define ADC_BRAKE
 
 #endif /* CONFIG_H_ */
+
