@@ -52,7 +52,7 @@
 //#define DIRDET
 #define FRAC_HIGH 30
 #define FRAC_LOW 15
-#define TS_MODE
+//#define TS_MODE
 //#define TQONAD1
 //#define DISPLAY_TYPE DISPLAY_TYPE_DEBUG
 #define REVERSE 1
@@ -72,7 +72,7 @@
 #define AUTODETECT 1
 #define SPEED_PLL 1 //1 for using PLL, 0 for angle extrapolation
 
-//#define EXTERNAL 1
+#define EXTERNAL 1
 #define INTERNAL 0
 #define SPEEDSOURCE INTERNAL
 #define SPEEDFILTER 1
