@@ -54,7 +54,7 @@
 #define FRAC_LOW 15
 //#define TS_MODE
 //#define TQONAD1
-#define DISPLAY_TYPE DISPLAY_TYPE_DEBUG
+//#define DISPLAY_TYPE DISPLAY_TYPE_DEBUG
 #define REVERSE 1
 #define PUSHASSIST_CURRENT 300
 #define VOLTAGE_MIN 300
@@ -72,9 +72,9 @@
 #define AUTODETECT 1
 #define SPEED_PLL 0 //1 for using PLL, 0 for angle extrapolation
 
-#define EXTERNAL 1
-#define INTERNAL 0
-#define SPEEDSOURCE EXTERNAL
+//#define EXTERNAL 1
+#define INTERNAL 1
+#define SPEEDSOURCE INTERNAL
 #define SPEEDFILTER 1
 #define SIXSTEPTHRESHOLD 20000
 
