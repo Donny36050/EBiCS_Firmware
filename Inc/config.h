@@ -40,7 +40,7 @@
 #define TS_COEF 16000000
 #define PAS_TIMEOUT 8000
 #define RAMP_END 1200
-//#define THROTTLE_OFFSET 900
+#define THROTTLE_OFFSET 900
 //#define THROTTLE_MAX 2850
 #define WHEEL_CIRCUMFERENCE 2200
 #define GEAR_RATIO 11 //11 for BionX IGH3
@@ -80,6 +80,10 @@
 
 #define SPDSHFT 0
 //#define ADC_BRAKE
+
+#endif /* CONFIG_H_ */
+
+
 
 #endif /* CONFIG_H_ */
 
