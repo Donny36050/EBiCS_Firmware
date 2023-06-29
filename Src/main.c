@@ -516,17 +516,7 @@ int main(void)
 #endif
 
 //run autodect, whenn brake is pulled an throttle is pulled for 10 at startup
-#ifndef NCTE
 
-  	while ((!HAL_GPIO_ReadPin(Brake_GPIO_Port, Brake_Pin))&&(adcData[1]>(THROTTLE_OFFSET+20))){
-  				HAL_IWDG_Refresh(&hiwdg);
-  				HAL_Delay(200);
-  	   			y++;
-  	   			if(y==35) autodetect();
-  	   			}
-#else
-  	ui32_throttle_cumulated=THROTTLE_OFFSET<<4;
-#endif
 
 #if (DISPLAY_TYPE == DISPLAY_TYPE_DEBUG)
    	printf_("phase current offsets:  %d, %d, %d \n ", ui16_ph1_offset, ui16_ph2_offset, ui16_ph3_offset);
@@ -538,11 +528,7 @@ int main(void)
 
 #endif
 
-#ifdef NCTE
-   	while(adcData[1]<THROTTLE_OFFSET)
-#else
-   	while(adcData[1]>THROTTLE_OFFSET)
-#endif
+
    	  	{
    		HAL_IWDG_Refresh(&hiwdg);//do nothing (For Safety at switching on)
    	  	}
@@ -846,19 +832,7 @@ int main(void)
 
 #endif
 
-#ifdef THROTTLE_OVERRIDE
 
-
-#ifdef NCTE
-			  // read in throttle for throttle override
-			  uint16_mapped_throttle = map(ui16_throttle, THROTTLE_MAX, THROTTLE_OFFSET,PH_CURRENT_MAX,0);
-
-
-#else //else NTCE
-			  // read in throttle for throttle override
-			  uint16_mapped_throttle = map(ui16_throttle, THROTTLE_OFFSET, THROTTLE_MAX, 0,PH_CURRENT_MAX);
-
-#endif //end NTCE
 
 #ifndef TS_MODE //normal PAS Mode
 
