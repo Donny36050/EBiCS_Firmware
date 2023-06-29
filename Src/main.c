@@ -682,11 +682,7 @@ int main(void)
 		  ui8_PAS_flag=0;
 		  //read in and sum up torque-signal within one crank revolution (for sempu sensor 32 PAS pulses/revolution, 2^5=32)
 		  uint32_torque_cumulated -= uint32_torque_cumulated>>5;
-#ifdef NCTE
-		  if(ui16_throttle<THROTTLE_OFFSET)uint32_torque_cumulated += (THROTTLE_OFFSET-ui16_throttle);
-#else
-		  if(ui16_throttle>THROTTLE_OFFSET)uint32_torque_cumulated += (ui16_throttle-THROTTLE_OFFSET);
-#endif
+
 		  }
 	  }
 
@@ -890,7 +886,7 @@ int main(void)
 
 				  } //end else of throttle override
 
-#endif //end throttle override
+
 
 				} //end else for normal riding
 				  //ramp down setpoint at speed limit
