@@ -1055,38 +1055,38 @@ int main(void)
 
 #endif
 
-//#if (DISPLAY_TYPE == DISPLAY_TYPE_EBiCS)
-//		  ui8_slowloop_counter++;
-//		  if(ui8_slowloop_counter>3){
-//			  ui8_slowloop_counter = 0;
+#if (DISPLAY_TYPE == DISPLAY_TYPE_EBiCS)
+		  ui8_slowloop_counter++;
+		  if(ui8_slowloop_counter>3){
+			  ui8_slowloop_counter = 0;
 
-			  //switch (ui8_main_LEV_Page_counter){
-			  //case 1: {
-			//	  ui8_LEV_Page_to_send = 1;
-			  //	  }
-			  //	  break;
-			  //case 2: {
-			//	  ui8_LEV_Page_to_send = 2;
-			 // 	  }
-			  //	  break;
-			 // case 3: {
-			//	  ui8_LEV_Page_to_send = 3;
-			 // 	  }
-			  //	  break;
-			 // case 4: {
+			  switch (ui8_main_LEV_Page_counter){
+			  case 1: {
+				  ui8_LEV_Page_to_send = 1;
+			  	  }
+			  	  break;
+			  case 2: {
+				  ui8_LEV_Page_to_send = 2;
+			  	  }
+			  	  break;
+			  case 3: {
+				  ui8_LEV_Page_to_send = 3;
+			  	  }
+			  	  break;
+			  case 4: {
 				  //to do, define other pages
-			//	  ui8_LEV_Page_to_send = 4;
-			 // 	  }
-			 // 	  break;
-			//  }//end switch
+				  ui8_LEV_Page_to_send = 4;
+			  	  }
+			  	  break;
+			  }//end switch
 
-			//  send_ant_page(ui8_LEV_Page_to_send, &MS, &MP);
+			  send_ant_page(ui8_LEV_Page_to_send, &MS, &MP);
 
 			//  ui8_main_LEV_Page_counter++;
-			//  if(ui8_main_LEV_Page_counter>4)ui8_main_LEV_Page_counter=1;
-		//  }
+			  if(ui8_main_LEV_Page_counter>4)ui8_main_LEV_Page_counter=1;
+		  }
 
-//#endif
+#endif
 		  ui32_tim3_counter=0;
 	  }// end of slow loop
 
