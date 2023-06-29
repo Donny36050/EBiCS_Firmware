@@ -1064,7 +1064,7 @@ int main(void)
 			  //case 1: {
 			//	  ui8_LEV_Page_to_send = 1;
 			  //	  }
-			  	  break;
+			  //	  break;
 			  //case 2: {
 			//	  ui8_LEV_Page_to_send = 2;
 			 // 	  }
