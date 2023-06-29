@@ -8,8 +8,8 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 #include "stdint.h"
-#define DISPLAY_TYPE_EBiCS (1<<5)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
-#define DISPLAY_TYPE_KINGMETER_618U (1<<3)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
+//#define DISPLAY_TYPE_EBiCS (1<<5)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
+//#define DISPLAY_TYPE_KINGMETER_618U (1<<3)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
 //#define DISPLAY_TYPE_KINGMETER_901U (1<<4)                  // King-Meter 901U protocol (KM5s)
 //#define DISPLAY_TYPE_KINGMETER      (DISPLAY_TYPE_KINGMETER_618U|DISPLAY_TYPE_KINGMETER_901U)
 #define DISPLAY_TYPE_BAFANG (1<<2)							// For 'Blaupunkt' Display of Prophete Entdecker
@@ -40,12 +40,12 @@
 #define TS_COEF 16000000
 #define PAS_TIMEOUT 8000
 #define RAMP_END 1200
-#define THROTTLE_OFFSET 900
-#define THROTTLE_MAX 2850
+//#define THROTTLE_OFFSET 900
+//#define THROTTLE_MAX 2850
 #define WHEEL_CIRCUMFERENCE 2600
 #define GEAR_RATIO 11 //11 for BionX IGH3
 #define SPEEDLIMIT 30
-#define PULSES_PER_REVOLUTION 1
+#define PULSES_PER_REVOLUTION 10
 #define PH_CURRENT_MAX 600
 #define BATTERYCURRENT_MAX 15000
 #define SPEC_ANGLE -167026406L //Value no longer needed
@@ -74,7 +74,7 @@
 
 #define EXTERNAL 1
 #define INTERNAL 0
-#define SPEEDSOURCE EXTERNAL
+#define SPEEDSOURCE INTERNAL
 #define SPEEDFILTER 1
 #define SIXSTEPTHRESHOLD 20000
 
