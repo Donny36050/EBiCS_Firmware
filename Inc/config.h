@@ -63,14 +63,12 @@
 #define VOLTAGE_MIN 500
 #define VOLTAGE_MAX 1600
 #define SPEC_ANGLE -715827882
-#define TQONAD1
+#define TS_MODE
 #define DISPLAY_TYPE DISPLAY_TYPE_BAFANG //Bafang Displays, including 'Blaupunkt' 
 #define SPEED_PLL 1
 #define SPEEDSOURCE INTERNAL
 #define AUTODETECT 0
 #define REVERSE 1
+#define THROTTLE_OVERRIDE
 
 #endif /* CONFIG_H_ */
-
-
-
