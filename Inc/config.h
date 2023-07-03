@@ -67,7 +67,7 @@
 #define DISPLAY_TYPE DISPLAY_TYPE_BAFANG //Bafang Displays, including 'Blaupunkt' 
 #define SPEED_PLL 1
 #define SPEEDSOURCE INTERNAL
-#define AUTODETECT 0
+#define AUTODETECT 1
 #define REVERSE 1
 #define THROTTLE_OVERRIDE
 
