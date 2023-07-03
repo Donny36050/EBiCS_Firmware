@@ -69,14 +69,8 @@
 #define SPEEDSOURCE INTERNAL
 #define AUTODETECT 0
 #define REVERSE 1
-#define THROTTLE_OVERRIDE
 
 #endif /* CONFIG_H_ */
-
-
-
-
-
 
 
 
