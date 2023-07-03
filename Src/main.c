@@ -516,7 +516,17 @@ int main(void)
 #endif
 
 //run autodect, whenn brake is pulled an throttle is pulled for 10 at startup
+#ifndef NCTE
 
+  	while ((!HAL_GPIO_ReadPin(Brake_GPIO_Port, Brake_Pin))&&(adcData[1]>(THROTTLE_OFFSET+20))){
+  				HAL_IWDG_Refresh(&hiwdg);
+  				HAL_Delay(200);
+  	   			y++;
+  	   			if(y==35) autodetect();
+  	   			}
+#else
+  	ui32_throttle_cumulated=THROTTLE_OFFSET<<4;
+#endif
 
 #if (DISPLAY_TYPE == DISPLAY_TYPE_DEBUG)
    	printf_("phase current offsets:  %d, %d, %d \n ", ui16_ph1_offset, ui16_ph2_offset, ui16_ph3_offset);
@@ -528,7 +538,11 @@ int main(void)
 
 #endif
 
-
+#ifdef NCTE
+   	while(adcData[1]<THROTTLE_OFFSET)
+#else
+   	while(adcData[1]>THROTTLE_OFFSET)
+#endif
    	  	{
    		HAL_IWDG_Refresh(&hiwdg);//do nothing (For Safety at switching on)
    	  	}
@@ -682,7 +696,11 @@ int main(void)
 		  ui8_PAS_flag=0;
 		  //read in and sum up torque-signal within one crank revolution (for sempu sensor 32 PAS pulses/revolution, 2^5=32)
 		  uint32_torque_cumulated -= uint32_torque_cumulated>>5;
-
+#ifdef NCTE
+		  if(ui16_throttle<THROTTLE_OFFSET)uint32_torque_cumulated += (THROTTLE_OFFSET-ui16_throttle);
+#else
+		  if(ui16_throttle>THROTTLE_OFFSET)uint32_torque_cumulated += (ui16_throttle-THROTTLE_OFFSET);
+#endif
 		  }
 	  }
 
@@ -828,7 +846,19 @@ int main(void)
 
 #endif
 
+#ifdef THROTTLE_OVERRIDE
 
+
+#ifdef NCTE
+			  // read in throttle for throttle override
+			  uint16_mapped_throttle = map(ui16_throttle, THROTTLE_MAX, THROTTLE_OFFSET,PH_CURRENT_MAX,0);
+
+
+#else //else NTCE
+			  // read in throttle for throttle override
+			  uint16_mapped_throttle = map(ui16_throttle, THROTTLE_OFFSET, THROTTLE_MAX, 0,PH_CURRENT_MAX);
+
+#endif //end NTCE
 
 #ifndef TS_MODE //normal PAS Mode
 
@@ -886,7 +916,7 @@ int main(void)
 
 				  } //end else of throttle override
 
-
+#endif //end throttle override
 
 				} //end else for normal riding
 				  //ramp down setpoint at speed limit
@@ -1025,7 +1055,38 @@ int main(void)
 
 #endif
 
+#if (DISPLAY_TYPE == DISPLAY_TYPE_EBiCS)
+		  ui8_slowloop_counter++;
+		  if(ui8_slowloop_counter>3){
+			  ui8_slowloop_counter = 0;
 
+			  switch (ui8_main_LEV_Page_counter){
+			  case 1: {
+				  ui8_LEV_Page_to_send = 1;
+			  	  }
+			  	  break;
+			  case 2: {
+				  ui8_LEV_Page_to_send = 2;
+			  	  }
+			  	  break;
+			  case 3: {
+				  ui8_LEV_Page_to_send = 3;
+			  	  }
+			  	  break;
+			  case 4: {
+				  //to do, define other pages
+				  ui8_LEV_Page_to_send = 4;
+			  	  }
+			  	  break;
+			  }//end switch
+
+			//  send_ant_page(ui8_LEV_Page_to_send, &MS, &MP);
+
+			  ui8_main_LEV_Page_counter++;
+			  if(ui8_main_LEV_Page_counter>4)ui8_main_LEV_Page_counter=1;
+		  }
+
+#endif
 		  ui32_tim3_counter=0;
 	  }// end of slow loop
 
@@ -2513,3 +2574,4 @@ void assert_failed(uint8_t* file, uint32_t line)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
