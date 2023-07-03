@@ -26,7 +26,7 @@
 #define CAL_I 38LL<<8
 #define INDUCTANCE 6
 #define RESISTANCE 40
-#define FLUX_LINKAGE 1200
+#define FLUX_LINKAGE 9600
 #define GAMMA 9
 #define BATTERY_LEVEL_1 323000
 #define BATTERY_LEVEL_2 329000
@@ -63,14 +63,13 @@
 #define VOLTAGE_MIN 500
 #define VOLTAGE_MAX 1600
 #define SPEC_ANGLE -715827882
-#define TS_MODE
+//#define TS_MODE
 #define TQONAD1
 #define DISPLAY_TYPE DISPLAY_TYPE_BAFANG //Bafang Displays, including 'Blaupunkt' 
 #define SPEED_PLL 0
-#define SPEEDSOURCE EXTERNAL
+#define SPEEDSOURCE INTERNAL
 #define AUTODETECT 1
 #define REVERSE 1
 #define THROTTLE_OVERRIDE
 
 #endif /* CONFIG_H_ */
-
