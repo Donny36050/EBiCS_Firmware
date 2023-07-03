@@ -9,12 +9,12 @@
 #define CONFIG_H_
 #include "stdint.h"
 #define DISPLAY_TYPE_EBiCS (1<<5)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
-//#define DISPLAY_TYPE_KINGMETER_618U (1<<3)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
-//#define DISPLAY_TYPE_KINGMETER_901U (1<<4)                  // King-Meter 901U protocol (KM5s)
-//#define DISPLAY_TYPE_KINGMETER      (DISPLAY_TYPE_KINGMETER_618U|DISPLAY_TYPE_KINGMETER_901U)
+#define DISPLAY_TYPE_KINGMETER_618U (1<<3)                  // King-Meter 618U protocol (KM5s, EBS-LCD2, J-LCD, SW-LCD)
+#define DISPLAY_TYPE_KINGMETER_901U (1<<4)                  // King-Meter 901U protocol (KM5s)
+#define DISPLAY_TYPE_KINGMETER      (DISPLAY_TYPE_KINGMETER_618U|DISPLAY_TYPE_KINGMETER_901U)
 #define DISPLAY_TYPE_BAFANG (1<<2)							// For 'Blaupunkt' Display of Prophete Entdecker
-//#define DISPLAY_TYPE_KUNTENG (1<<1)							// For ASCII-Output in Debug mode
-//#define DISPLAY_TYPE_DEBUG (1<<0)							// For ASCII-Output in Debug mode);
+#define DISPLAY_TYPE_KUNTENG (1<<1)							// For ASCII-Output in Debug mode
+#define DISPLAY_TYPE_DEBUG (1<<0)							// For ASCII-Output in Debug mode);
 
 #define TRIGGER_OFFSET_ADC 50
 #define TRIGGER_DEFAULT 2020
@@ -24,7 +24,7 @@
 #define CAL_I 38LL<<8
 #define INDUCTANCE 6LL
 #define RESISTANCE 40LL
-#define FLUX_LINKAGE 1200LL
+#define FLUX_LINKAGE 9600LL
 #define GAMMA 9LL
 #define BATTERY_LEVEL_1 323000
 #define BATTERY_LEVEL_2 329000
@@ -69,7 +69,7 @@
 
 #define P_FACTOR_PLL 10
 #define I_FACTOR_PLL 10
-#define AUTODETECT 1
+#define AUTODETECT 0
 #define SPEED_PLL 0 //1 for using PLL, 0 for angle extrapolation
 
 #define EXTERNAL 1
